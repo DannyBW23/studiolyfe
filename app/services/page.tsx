@@ -3,42 +3,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Headphones, Mic } from "lucide-react"
 
 export default function ServicesPage() {
-  const engineers = [
-    {
-      name: "Jacob Stuart",
-      title: "Lead Recording Engineer",
-      icon: <Mic className="h-8 w-8 text-white" />,
-      iconBg: "from-blue-600 to-blue-800",
-      // specialties: ["Recording", "Live Sessions", "Vocal Production"],
-      // experience: "12+ years",
-      description:
-        "Mixing & Tracking engineer with 6.5 billion credited streams. Won his first grammy mixing Dolby ATMOS and mastering Coco Chanel by Bad Bunny. Jacob now holds 3 RIAA platinum records and one gold album through working with stars like Kendrick Lamar, Guns and Roses, Future, Yeat, and much more",
-      achievements: "Platinum: EST, Gee, Yovngchimi 2x",
-    },
-    {
-      name: "Jackson",
-      title: "Engineer",
-      icon: <Headphones className="h-8 w-8 text-white" />,
-      iconBg: "from-purple-600 to-purple-800",
-      // specialties: ["Mixing", "Mastering", "Audio Post-Production"],
-      // experience: "10+ years",
-      description:
-        "Declan is a master of the mix, with an incredible ability to balance and enhance every element of your track. Her mastering work ensures your music translates perfectly across all playback systems.",
-      // achievements: "Platinum-certified releases, Award-winning film soundtracks",
-    },
-    // {
-    //   // name: "Clem",
-    //   // title: "Hip-Hop & Electronic Producer",
-    //   // icon: <Zap className="h-8 w-8 text-white" />,
-    //   // iconBg: "from-blue-600 to-purple-600",
-    //   // specialties: ["Beat Making", "Electronic Production", "Sound Design"],
-    //   // experience: "8+ years",
-    //   // description:
-    //   //   "Clem specializes in modern hip-hop and electronic music production. From hard-hitting beats to atmospheric soundscapes, he brings cutting-edge production techniques and fresh creative energy to every project.",
-    //   // achievements: "Chart-topping singles, Major label collaborations",
-    // },
-   
-  ]
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-blue-950">
@@ -48,11 +12,8 @@ export default function ServicesPage() {
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
         
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            Our{" "}
-            <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-600 bg-clip-text text-transparent">
-              Engineers
-            </span>
+          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-900 via-blue-300 to-green-300 bg-clip-text text-transparent  mb-6">
+            Our Engineers
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
             Meet the talented professionals who will bring your{" "}
@@ -130,11 +91,8 @@ export default function ServicesPage() {
   <div className="absolute top-10 left-20 w-32 h-32 bg-purple-500/20 rounded-full blur-xl animate-bounce"></div>
 
   <div className="max-w-4xl mx-auto text-center relative z-10">
-    <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-      Our{" "}
-      <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-600 bg-clip-text text-transparent">
-        Owners
-      </span>
+    <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-900 via-blue-300 to-green-300 bg-clip-text text-transparent mb-6">
+      Our Owners
     </h1>
     <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
       Meet the visionaries behind StudioLyfe.
@@ -186,11 +144,8 @@ export default function ServicesPage() {
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
           
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            Our{" "}
-            <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-600 bg-clip-text text-transparent">
-              Rooms
-            </span>
+          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-900 via-blue-300 to-green-300 bg-clip-text text-transparent mb-6">
+            Our Rooms
           </h1>
          
         </div>
@@ -247,11 +202,8 @@ export default function ServicesPage() {
   <div className="absolute top-10 left-20 w-32 h-32 bg-purple-500/20 rounded-full blur-xl animate-bounce"></div>
 
   <div className="max-w-4xl mx-auto text-center relative z-10">
-    <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-      Food &{" "}
-      <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-600 bg-clip-text text-transparent">
-        Drink
-      </span>
+    <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-900 via-blue-300 to-green-300 bg-clip-text text-transparent mb-6">
+      Food & Drink
     </h1>
     <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
       Complimentary beverages and delicious bites to keep your session flowing.
@@ -314,7 +266,7 @@ export default function ServicesPage() {
 
       <section className="py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-white mb-6">Ready to Work with Our Team?</h2>
+          <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-900 via-blue-300 to-green-300 bg-clip-text text-transparent mb-6">Ready to Work with Our Team?</h2>
           <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
             Each of our engineers brings unique expertise and passion to every project. Contact us to discuss which
             engineer would be the perfect fit for your musical vision.

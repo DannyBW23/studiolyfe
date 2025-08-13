@@ -21,7 +21,7 @@ export function Navbar() {
               className="rounded-full object-contain bg-black"
             />
           </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-blue-600 bg-clip-text text-transparent">
+            <span className="text-2xl font-bold bg-gradient-to-r from-blue-900 via-blue-300 to-green-300 bg-clip-text text-transparent">
               StudioLyfe
             </span>
           </Link>

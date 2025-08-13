@@ -26,11 +26,8 @@ export default function HomePage() {
     className="rounded-full object-contain " // bg-color to fill empty space
   />
 </div>
-          <h1 className="text-white text-5xl md:text-7xl font-bold mb-6">
-            Welcome to{" "}
-            <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-600 bg-clip-text text-transparent animate-pulse">
-              StudioLyfe
-            </span>
+          <h1 className="bg-gradient-to-r from-blue-900 via-blue-300 to-green-300 bg-clip-text text-transparent text-5xl md:text-7xl font-bold mb-6">
+            Welcome to StudioLyfe
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-2xl mx-auto">
             Professional music recording studio where your sound comes to life with{" "}
