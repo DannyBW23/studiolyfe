@@ -32,9 +32,13 @@ export default function AboutPage() {
             <h2 className="text-3xl font-bold text-white mb-8 text-center">Our Story</h2>
             <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl p-8 border border-blue-800/30">
               <div className="prose prose-lg max-w-none text-gray-300 leading-relaxed">
-                <p className="text-lg mb-6">
-                Studio Lyfe is a high-end music production space located in North Hollywood's music district. We provide top of the line equipment and amenities at competitive prices. Whether you reserve our Asian inspired A room with its private Zen Garden or Art Deco themed B room with its dreamy cloud ceiling you're sure to record your next big hit. Sit back and enjoy our grammy winning production and house made food and beverage options. Studio Life is Managed by the Highlyfe Collective. 
-                </p>
+              <p className="text-lg mb-6">
+  Studio Lyfe is a high-end music production space located in North Hollywood&apos;s music district. 
+  We provide top of the line equipment and amenities at competitive prices. Whether you reserve our Asian 
+  inspired A room with its private Zen Garden or Art Deco themed B room with its dreamy cloud ceiling you&apos;re 
+  sure to record your next big hit. Sit back and enjoy our grammy winning production and house made food and 
+  beverage options. Studio Life is Managed by the Highlyfe Collective. 
+</p>
 
               </div>
             </div>
@@ -105,11 +109,11 @@ export default function AboutPage() {
           <div className="mt-16 text-center">
             <h2 className="text-3xl font-bold text-white mb-8">Our Mission</h2>
             <div className="bg-gradient-to-r from-blue-900/50 to-purple-900/50 backdrop-blur-sm rounded-xl p-8 max-w-3xl mx-auto border border-blue-800/30">
-              <p className="text-xl text-white leading-relaxed">
-                "To provide artists with an inspiring environment, professional expertise, and cutting-edge technology
-                that empowers them to create music that moves the world. We believe every song has the power to touch
-                lives, and we're here to help you share yours."
-              </p>
+            <p className="text-xl text-white leading-relaxed">
+  &quot;To provide artists with an inspiring environment, professional expertise, and cutting-edge technology
+  that empowers them to create music that moves the world. We believe every song has the power to touch
+  lives, and we&apos;re here to help you share yours.&quot;
+</p>
             </div>
           </div>
         </div>
