@@ -79,8 +79,8 @@ export default function HomePage() {
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-base leading-relaxed text-gray-300">
-                  More than just a studio - we're a creative community dedicated to bringing your musical vision to
-                  life. Experience the StudioLyfe difference with{" "}
+                More than just a studio - we&apos;re a creative community dedicated to bringing your musical vision to
+                life. Experience the StudioLyfe difference with{" "}
                   <span className="text-purple-400 font-semibold">personalized service</span> and professional results.
                 </CardDescription>
               </CardContent>
