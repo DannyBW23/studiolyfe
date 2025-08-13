@@ -1,42 +1,42 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Headphones, Mic, Zap } from "lucide-react"
+
+import { Headphones, Mic } from "lucide-react"
 
 export default function ServicesPage() {
   const engineers = [
     {
-      name: "Jacob",
+      name: "Jacob Stuart",
       title: "Lead Recording Engineer",
       icon: <Mic className="h-8 w-8 text-white" />,
       iconBg: "from-blue-600 to-blue-800",
-      specialties: ["Recording", "Live Sessions", "Vocal Production"],
-      experience: "12+ years",
+      // specialties: ["Recording", "Live Sessions", "Vocal Production"],
+      // experience: "12+ years",
       description:
-        "Jacob brings over a decade of experience in capturing pristine recordings. Specializing in live band sessions and vocal production, he has an exceptional ear for detail and knows how to get the best performance from every artist.",
-      achievements: "Worked with Grammy-nominated artists, 500+ successful recordings",
+        "Mixing & Tracking engineer with 6.5 billion credited streams. Won his first grammy mixing Dolby ATMOS and mastering Coco Chanel by Bad Bunny. Jacob now holds 3 RIAA platinum records and one gold album through working with stars like Kendrick Lamar, Guns and Roses, Future, Yeat, and much more",
+      achievements: "Platinum: EST, Gee, Yovngchimi 2x",
     },
     {
-      name: "Declan",
-      title: "Mixing & Mastering Specialist",
+      name: "Jackson",
+      title: "Engineer",
       icon: <Headphones className="h-8 w-8 text-white" />,
       iconBg: "from-purple-600 to-purple-800",
-      specialties: ["Mixing", "Mastering", "Audio Post-Production"],
-      experience: "10+ years",
+      // specialties: ["Mixing", "Mastering", "Audio Post-Production"],
+      // experience: "10+ years",
       description:
         "Declan is a master of the mix, with an incredible ability to balance and enhance every element of your track. Her mastering work ensures your music translates perfectly across all playback systems.",
-      achievements: "Platinum-certified releases, Award-winning film soundtracks",
+      // achievements: "Platinum-certified releases, Award-winning film soundtracks",
     },
-    {
-      name: "Clem",
-      title: "Hip-Hop & Electronic Producer",
-      icon: <Zap className="h-8 w-8 text-white" />,
-      iconBg: "from-blue-600 to-purple-600",
-      specialties: ["Beat Making", "Electronic Production", "Sound Design"],
-      experience: "8+ years",
-      description:
-        "Clem specializes in modern hip-hop and electronic music production. From hard-hitting beats to atmospheric soundscapes, he brings cutting-edge production techniques and fresh creative energy to every project.",
-      achievements: "Chart-topping singles, Major label collaborations",
-    },
+    // {
+    //   // name: "Clem",
+    //   // title: "Hip-Hop & Electronic Producer",
+    //   // icon: <Zap className="h-8 w-8 text-white" />,
+    //   // iconBg: "from-blue-600 to-purple-600",
+    //   // specialties: ["Beat Making", "Electronic Production", "Sound Design"],
+    //   // experience: "8+ years",
+    //   // description:
+    //   //   "Clem specializes in modern hip-hop and electronic music production. From hard-hitting beats to atmospheric soundscapes, he brings cutting-edge production techniques and fresh creative energy to every project.",
+    //   // achievements: "Chart-topping singles, Major label collaborations",
+    // },
    
   ]
 
@@ -62,47 +62,124 @@ export default function ServicesPage() {
       </section>
 
       <section className="py-12 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-8">
-            {engineers.map((engineer, index) => (
-              <Card
-                key={index}
-                className="h-full bg-gray-900/50 border-blue-800/30 hover:border-blue-600/50 transition-all duration-300 hover:transform hover:scale-105 backdrop-blur-sm"
-              >
-                <CardHeader>
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className={`p-2 bg-gradient-to-r ${engineer.iconBg} rounded-lg`}>{engineer.icon}</div>
-                    <div>
-                      <CardTitle className="text-2xl text-white">{engineer.name}</CardTitle>
-                      <CardDescription className="text-lg font-medium text-blue-400">{engineer.title}</CardDescription>
-                    </div>
-                  </div>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {engineer.specialties.map((specialty, idx) => (
-                      <Badge key={idx} variant="secondary" className="bg-blue-900/50 text-blue-300 border-blue-700/50">
-                        {specialty}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div>
-                    <p className="text-sm font-medium text-gray-400 mb-2">Experience</p>
-                    <p className="text-base font-semibold text-purple-400">{engineer.experience}</p>
-                  </div>
-                  <div>
-                    <p className="text-base leading-relaxed text-gray-300">{engineer.description}</p>
-                  </div>
-                  <div className="pt-4 border-t border-blue-800/30">
-                    <p className="text-sm font-medium text-gray-400 mb-2">Notable Achievements</p>
-                    <p className="text-sm text-blue-300">{engineer.achievements}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+  <div className="max-w-6xl mx-auto">
+    <div className="grid md:grid-cols-2 gap-8">
+
+      {/* Jacob Stuart */}
+      <Card className="h-full bg-gray-900/50 border-blue-800/30 hover:border-blue-600/50 transition-all duration-300 hover:transform hover:scale-105 backdrop-blur-sm">
+        <CardHeader>
+          <div className="flex items-center gap-4 mb-4">
+            <div className="p-2 bg-gradient-to-r from-blue-600 to-blue-800 rounded-lg">
+              <Mic className="h-8 w-8 text-white" />
+            </div>
+            <div>
+              <CardTitle className="text-2xl text-white">Jacob Stuart</CardTitle>
+              <CardDescription className="text-lg font-medium text-blue-400">
+                Lead Recording Engineer
+              </CardDescription>
+            </div>
           </div>
-        </div>
-      </section>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div>
+            <p className="text-base leading-relaxed text-gray-300">
+              Mixing &amp; Tracking engineer with 6.5 billion credited streams. Won his first Grammy mixing Dolby ATMOS and mastering <em>Coco Chanel</em> by Bad Bunny. Jacob now holds 3 RIAA platinum records and one gold album through working with stars like Kendrick Lamar, Guns and Roses, Future, Yeat, and much more.
+            </p>
+          </div>
+          <div className="pt-4 border-t border-blue-800/30">
+            <p className="text-sm font-medium text-gray-400 mb-2">Notable Achievements</p>
+            <p className="text-sm text-blue-300">
+              Platinum: EST, Gee, Yovngchimi 2x
+            </p>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Jackson */}
+      <Card className="h-full bg-gray-900/50 border-purple-800/30 hover:border-purple-600/50 transition-all duration-300 hover:transform hover:scale-105 backdrop-blur-sm">
+        <CardHeader>
+          <div className="flex items-center gap-4 mb-4">
+            <div className="p-2 bg-gradient-to-r from-purple-600 to-purple-800 rounded-lg">
+              <Headphones className="h-8 w-8 text-white" />
+            </div>
+            <div>
+              <CardTitle className="text-2xl text-white">Jackson</CardTitle>
+              <CardDescription className="text-lg font-medium text-blue-400">
+                Engineer
+              </CardDescription>
+            </div>
+          </div>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div>
+            <p className="text-base leading-relaxed text-gray-300">
+              Jackson is a master of the mix, with an incredible ability to balance and enhance every element of your track. Her mastering work ensures your music translates perfectly across all playback systems.
+            </p>
+          </div>
+          {/* No notable achievements listed for now */}
+        </CardContent>
+      </Card>
+
+    </div>
+  </div>
+</section>
+
+{/* Owners Section */}
+<section className="py-20 px-4 relative overflow-hidden">
+  <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 animate-pulse"></div>
+  <div className="absolute top-10 left-20 w-32 h-32 bg-purple-500/20 rounded-full blur-xl animate-bounce"></div>
+
+  <div className="max-w-4xl mx-auto text-center relative z-10">
+    <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+      Our{" "}
+      <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-600 bg-clip-text text-transparent">
+        Owners
+      </span>
+    </h1>
+    <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+      Meet the visionaries behind StudioLyfe.
+    </p>
+  </div>
+</section>
+
+<section className="py-12 px-4">
+  <div className="max-w-6xl mx-auto">
+    <div className="grid md:grid-cols-2 gap-8">
+      {/* Max Judah */}
+      <Card className="h-full bg-gray-900/50 border-blue-800/30 hover:border-blue-600/50 transition-all duration-300 hover:transform hover:scale-105 backdrop-blur-sm">
+        <CardHeader>
+          <CardTitle className="text-2xl text-white">Max Judah</CardTitle>
+          <CardDescription className="text-lg font-medium text-blue-400">
+            Artist • Manager
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p className="text-base leading-relaxed text-gray-300">
+            Max is an artist and manager based in Los Angeles. He&apos;s a skilled team builder and artist development specialist with a focus on pop and rap music.
+          </p>
+        </CardContent>
+      </Card>
+
+      {/* Clement Finney */}
+      <Card className="h-full bg-gray-900/50 border-purple-800/30 hover:border-purple-600/50 transition-all duration-300 hover:transform hover:scale-105 backdrop-blur-sm">
+        <CardHeader>
+          <CardTitle className="text-2xl text-white">Clement Finney</CardTitle>
+          <CardDescription className="text-lg font-medium text-blue-400">
+            Studio Designer • Creative Director
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p className="text-base leading-relaxed text-gray-300">
+            Clem started his journey with music studio design in college from a garage in the Midwest. He utilizes experience in West Hollywood&apos;s nightlife scene along with a wide range of other influences to create unique creative spaces.
+          </p>
+        </CardContent>
+      </Card>
+    </div>
+  </div>
+</section>
+
+
+      
       <section className="py-20 px-4 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 animate-pulse"></div>
         <div className="absolute top-10 left-20 w-32 h-32 bg-purple-500/20 rounded-full blur-xl animate-bounce"></div>

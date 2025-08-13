@@ -3,8 +3,8 @@
 import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Menu, X, Music } from "lucide-react"
-
+import { Menu, X } from "lucide-react"
+import Image from "next/image"
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
@@ -13,9 +13,14 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="p-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg group-hover:from-blue-500 group-hover:to-purple-500 transition-all duration-300">
-              <Music className="h-5 w-5 text-white" />
-            </div>
+          <div className="relative w-[40px] h-[40px] mx-auto ">
+            <Image
+              src="https://profilepic23.s3.us-east-1.amazonaws.com/Screenshot+2025-08-13+at+1.54.26%E2%80%AFPM.png"
+              alt="StudioLyfe"
+              fill
+              className="rounded-full object-contain bg-black"
+            />
+          </div>
             <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-blue-600 bg-clip-text text-transparent">
               StudioLyfe
             </span>

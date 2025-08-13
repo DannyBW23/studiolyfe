@@ -101,7 +101,7 @@ export default function HomePage() {
             <Button
               variant="outline"
               className="flex items-center gap-3 justify-center py-6 bg-transparent border-blue-600/50 text-white hover:bg-blue-600/20 hover:border-blue-500 transition-all duration-300"
-              onClick={() => window.open("https://www.instagram.com/highlyfecollective/", "_blank")}
+              onClick={() => window.open("https://www.instagram.com/_studiolyfe/", "_blank")}
             >
               <Instagram className="h-5 w-5 text-pink-400" />
               DM us on Instagram
@@ -109,7 +109,7 @@ export default function HomePage() {
             <Button
   variant="outline"
   className="flex items-center gap-3 justify-center py-6 bg-transparent border-purple-600/50 text-white hover:bg-purple-600/20 hover:border-purple-500 transition-all duration-300"
-  onClick={() => (window.location.href = "mailto:highlyfecollective@gmail.com")}
+  onClick={() => (window.location.href = "mailto:studiolyfela@gmail.com")}
 >
   <Mail className="h-5 w-5 text-blue-400" />
   Send us an Email

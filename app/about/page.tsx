@@ -1,6 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Music, Users, Award, Heart, Sparkles } from "lucide-react"
-
+import { Music, Users, Award, Heart } from "lucide-react"
+import Image from "next/image"
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-blue-950">
@@ -9,19 +9,21 @@ export default function AboutPage() {
         <div className="absolute top-10 right-20 w-40 h-40 bg-blue-500/20 rounded-full blur-2xl animate-bounce"></div>
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <div className="flex justify-center mb-6">
-            <Sparkles className="h-12 w-12 text-purple-400 animate-pulse" />
-          </div>
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            About{" "}
-            <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-600 bg-clip-text text-transparent">
-              StudioLyfe
-            </span>
+        <div className="relative w-[260px] h-[260px] mx-auto mb-5">
+  <Image
+    src="https://profilepic23.s3.us-east-1.amazonaws.com/Screenshot+2025-08-13+at+1.54.26%E2%80%AFPM.png"
+    alt="StudioLyfe"
+    fill
+    className="rounded-full object-contain bg-black " // bg-color to fill empty space
+  />
+</div>
+<h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-900 via-blue-300 to-green-300 bg-clip-text text-transparent mb-6">
+            About StudioLyfe
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+          {/* <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
             Where <span className="text-purple-400 font-semibold">passion</span> meets{" "}
             <span className="text-blue-400 font-semibold">precision</span>, and every note tells a story
-          </p>
+          </p> */}
         </div>
       </section>
 
@@ -29,7 +31,7 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto">
           {/* Studio Story */}
           <div className="mb-16">
-            <h2 className="text-3xl font-bold text-white mb-8 text-center">Our Story</h2>
+            {/* <h2 className="text-3xl font-bold text-white mb-8 text-center">Our Story</h2> */}
             <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl p-8 border border-blue-800/30">
               <div className="prose prose-lg max-w-none text-gray-300 leading-relaxed">
               <p className="text-lg mb-6">
@@ -106,16 +108,7 @@ export default function AboutPage() {
             </Card>
           </div>
 
-          <div className="mt-16 text-center">
-            <h2 className="text-3xl font-bold text-white mb-8">Our Mission</h2>
-            <div className="bg-gradient-to-r from-blue-900/50 to-purple-900/50 backdrop-blur-sm rounded-xl p-8 max-w-3xl mx-auto border border-blue-800/30">
-            <p className="text-xl text-white leading-relaxed">
-  &quot;To provide artists with an inspiring environment, professional expertise, and cutting-edge technology
-  that empowers them to create music that moves the world. We believe every song has the power to touch
-  lives, and we&apos;re here to help you share yours.&quot;
-</p>
-            </div>
-          </div>
+         
         </div>
       </section>
     </div>
