@@ -35,11 +35,11 @@ export default function AboutPage() {
             <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl p-8 border border-blue-800/30">
               <div className="prose prose-lg max-w-none text-gray-300 leading-relaxed">
               <p className="text-lg mb-6">
-  Studio Lyfe is a high-end music production space located in North Hollywood&apos;s music district. 
+  StudioLyfe is a high-end music production space located in North Hollywood&apos;s music district. 
   We provide top of the line equipment and amenities at competitive prices. Whether you reserve our Asian 
   inspired A room with its private Zen Garden or Art Deco themed B room with its dreamy cloud ceiling you&apos;re 
   sure to record your next big hit. Sit back and enjoy our grammy winning production and house made food and 
-  beverage options. Studio Life is Managed by the Highlyfe Collective. 
+  beverage options. StudioLyfe is Managed by the Highlyfe Collective. 
 </p>
 
               </div>
