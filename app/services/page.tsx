@@ -36,30 +36,27 @@ export default function ServicesPage() {
 
   // Gallery with full-screen lightbox
   function RoomGallery({ title, images }: { title: string; images: string[] }) {
-    // local state to switch between grid and lightbox inside ONE dialog
+    // One dialog; swap between grid and lightbox
     const [mode, setMode] = useState<"grid" | "lightbox">("grid")
     const [index, setIndex] = useState(0)
   
-    const openAt = (i: number) => {
-      setIndex(i)
-      setMode("lightbox")
-    }
-  
+    const openAt = (i: number) => { setIndex(i); setMode("lightbox") }
     const prev = () => setIndex((i) => (i - 1 + images.length) % images.length)
     const next = () => setIndex((i) => (i + 1) % images.length)
   
-    // keyboard navigation (active only in lightbox mode)
+    // Keyboard nav in lightbox
     useEffect(() => {
       if (mode !== "lightbox") return
       const onKey = (e: KeyboardEvent) => {
         if (e.key === "ArrowLeft") prev()
         if (e.key === "ArrowRight") next()
+        if (e.key === "Escape") setMode("grid")
       }
       window.addEventListener("keydown", onKey)
       return () => window.removeEventListener("keydown", onKey)
     }, [mode])
   
-    // --- mobile swipe handlers ---
+    // Swipe nav in lightbox
     const start = useRef<{ x: number; y: number } | null>(null)
     const isHorizontal = useRef(false)
   
@@ -68,38 +65,41 @@ export default function ServicesPage() {
       start.current = { x: t.clientX, y: t.clientY }
       isHorizontal.current = false
     }
-  
     const onTouchMove: React.TouchEventHandler<HTMLDivElement> = (e) => {
       if (!start.current) return
       const t = e.touches[0]
       const dx = t.clientX - start.current.x
       const dy = t.clientY - start.current.y
       if (!isHorizontal.current) isHorizontal.current = Math.abs(dx) > Math.abs(dy)
-      if (isHorizontal.current) e.preventDefault() // stop page scroll while swiping horizontally
+      if (isHorizontal.current) e.preventDefault() // stop page scroll while swiping
     }
-  
     const onTouchEnd: React.TouchEventHandler<HTMLDivElement> = (e) => {
       if (!start.current) return
       const t = e.changedTouches[0]
       const dx = t.clientX - start.current.x
       const dy = t.clientY - start.current.y
       const THRESHOLD = 60
-      const CLOSE_Y = 120 // swipe-down to close lightbox
-  
+      const CLOSE_Y = 120
       if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > THRESHOLD) {
         dx < 0 ? next() : prev()
       } else if (dy > CLOSE_Y) {
-        setMode("grid") // swipe down to return to grid
+        setMode("grid") // swipe down to grid
       }
       start.current = null
       isHorizontal.current = false
     }
   
     return (
-      <DialogContent className={mode === "grid" ? "max-w-5xl bg-gray-950/95 border-blue-800/40" : "max-w-[95vw] w-[95vw] h-[90vh] p-0 bg-black/90 border-blue-800/40"}>
-        {/* A11y title (visible in grid, visually-hidden in lightbox) */}
+      <DialogContent
+        className={
+          mode === "grid"
+            ? "max-w-5xl bg-gray-950/95 border-blue-800/40 p-0"
+            : "max-w-[95vw] w-[95vw] h-[90vh] p-0 bg-black/90 border-blue-800/40"
+        }
+      >
+        {/* A11y title (visible in grid, hidden in lightbox) */}
         {mode === "grid" ? (
-          <DialogHeader>
+          <DialogHeader className="px-6 pt-6 pb-4 sticky top-0 bg-gray-950/95 z-10">
             <DialogTitle className="text-white">{title} — Gallery</DialogTitle>
           </DialogHeader>
         ) : (
@@ -111,46 +111,57 @@ export default function ServicesPage() {
         )}
   
         {mode === "grid" ? (
-          // ---- GRID VIEW ----
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {images.map((src, i) => (
-              <button
-                key={i}
-                onClick={() => openAt(i)}
-                className="relative w-full aspect-[4/3] overflow-hidden rounded-lg border border-blue-800/30 focus:outline-none focus:ring-2 focus:ring-blue-600/60"
-                aria-label={`Open ${title} image ${i + 1}`}
-              >
-                <Image
-                  src={src}
-                  alt={`${title} photo ${i + 1}`}
-                  fill
-                  sizes="(max-width: 1024px) 50vw, 33vw"
-                  className="object-cover"
-                  priority={i < 2}
-                />
-              </button>
-            ))}
+          // -------- Scrollable grid (iOS-friendly) --------
+          <div
+            className="
+              max-h-[70vh] sm:max-h-[75vh]
+              overflow-y-auto overscroll-contain
+              touch-pan-y
+              [-webkit-overflow-scrolling:touch]
+              px-6 pb-6
+            "
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              {images.map((src, i) => (
+                <button
+                  key={i}
+                  onClick={() => openAt(i)}
+                  className="relative w-full aspect-[4/3] overflow-hidden rounded-lg border border-blue-800/30 focus:outline-none focus:ring-2 focus:ring-blue-600/60"
+                  aria-label={`Open ${title} image ${i + 1}`}
+                  title={`Open ${title} image ${i + 1}`}
+                >
+                  <Image
+                    src={src}
+                    alt={`${title} photo ${i + 1}`}
+                    fill
+                    sizes="(max-width: 1024px) 50vw, 33vw"
+                    className="object-cover"
+                    priority={i < 2}
+                  />
+                </button>
+              ))}
+            </div>
           </div>
         ) : (
-          // ---- LIGHTBOX VIEW ----
+          // ---------------- Lightbox ----------------
           <div
             className="relative w-full h-full"
             onTouchStart={onTouchStart}
             onTouchMove={onTouchMove}
             onTouchEnd={onTouchEnd}
           >
-            {/* Close (closes the dialog) */}
+            {/* Close */}
             <DialogClose asChild>
               <button
                 className="absolute top-3 right-3 z-20 rounded-full bg-white/10 hover:bg-white/20 p-2"
                 aria-label="Close image viewer"
-                title="Close"
+                title="Close image viewer"
               >
                 <X className="w-6 h-6 text-white" />
               </button>
             </DialogClose>
   
-            {/* Back to grid (optional) */}
+            {/* Back to grid */}
             <button
               onClick={() => setMode("grid")}
               className="absolute top-3 left-3 z-20 rounded-full bg-white/10 hover:bg-white/20 px-3 py-2 text-white text-sm"
@@ -178,7 +189,7 @@ export default function ServicesPage() {
               <ArrowRight className="w-6 h-6 text-white" />
             </button>
   
-            {/* The image */}
+            {/* Image */}
             <div className="relative w-full h-full">
               <Image
                 src={images[index]}
