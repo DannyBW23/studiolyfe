@@ -6,9 +6,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Music, Headphones, Instagram, Mail} from "lucide-react"
 import Image from "next/image"
+import { MapPin } from "lucide-react"
 export default function HomePage() {
   const [isBookingOpen, setIsBookingOpen] = useState(false)
-
+const mapsUrl =
+  "https://www.google.com/maps/search/?api=1&query=10738%20Riverside%20Dr%20North%20Hollywood"
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-blue-950">
       {/* Hero Section */}
@@ -37,12 +39,21 @@ export default function HomePage() {
 
           <Button
             size="lg"
-            className="text-lg px-8 py-6 mb-16 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 transform hover:scale-105 transition-all duration-300 shadow-lg shadow-blue-500/25"
+            className="text-lg px-8 py-6 mb-5 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 transform hover:scale-105 transition-all duration-300 shadow-lg shadow-blue-500/25"
             onClick={() => setIsBookingOpen(true)}
           >
             <Music className="mr-2 h-5 w-5" />
             Book Now!
           </Button>
+          <div>
+          <Button asChild className="gap-2 bg-blue-600 hover:bg-blue-500 mb-16  text-white">
+  <a href={mapsUrl} target="_blank" rel="noopener noreferrer">
+    <MapPin className="h-5 w-5" />
+    Our Location
+  </a>
+</Button>
+</div>
+
 
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {/* Equipment Card */}
