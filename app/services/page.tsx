@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Mic, ArrowLeft, ArrowRight, X } from "lucide-react"
-import { useEffect, useState,useRef  } from "react"
+import { useEffect, useState } from "react"
 import {
   Dialog,
   DialogContent,
@@ -35,16 +35,15 @@ export default function ServicesPage() {
   function RoomGallery({ title, images }: { title: string; images: string[] }) {
     const [lightboxOpen, setLightboxOpen] = useState(false)
     const [index, setIndex] = useState(0)
-  
+
     const openAt = (i: number) => {
       setIndex(i)
       setLightboxOpen(true)
     }
-  
+
     const prev = () => setIndex((i) => (i - 1 + images.length) % images.length)
     const next = () => setIndex((i) => (i + 1) % images.length)
-  
-    // keyboard navigation
+
     useEffect(() => {
       if (!lightboxOpen) return
       const onKey = (e: KeyboardEvent) => {
@@ -55,51 +54,10 @@ export default function ServicesPage() {
       window.addEventListener("keydown", onKey)
       return () => window.removeEventListener("keydown", onKey)
     }, [lightboxOpen])
-  
-    // --- SWIPE HANDLERS ---
-    const start = useRef<{x: number; y: number} | null>(null)
-    const isHorizontalSwipe = useRef(false)
-  
-    const onTouchStart: React.TouchEventHandler<HTMLDivElement> = (e) => {
-      const t = e.touches[0]
-      start.current = { x: t.clientX, y: t.clientY }
-      isHorizontalSwipe.current = false
-    }
-  
-    const onTouchMove: React.TouchEventHandler<HTMLDivElement> = (e) => {
-      if (!start.current) return
-      const t = e.touches[0]
-      const dx = t.clientX - start.current.x
-      const dy = t.clientY - start.current.y
-      // decide direction lock
-      if (!isHorizontalSwipe.current) {
-        isHorizontalSwipe.current = Math.abs(dx) > Math.abs(dy)
-      }
-      // if we’re swiping horizontally, prevent page scroll
-      if (isHorizontalSwipe.current) e.preventDefault()
-    }
-  
-    const onTouchEnd: React.TouchEventHandler<HTMLDivElement> = (e) => {
-      if (!start.current) return
-      const t = e.changedTouches[0]
-      const dx = t.clientX - start.current.x
-      const dy = t.clientY - start.current.y
-      const THRESHOLD = 60 // px
-      const VERTICAL_CLOSE = 120 // swipe down to close (optional)
-  
-      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > THRESHOLD) {
-        dx < 0 ? next() : prev()
-      } else if (dy > VERTICAL_CLOSE) {
-        // swipe down to close (nice on mobile)
-        setLightboxOpen(false)
-      }
-      start.current = null
-      isHorizontalSwipe.current = false
-    }
-  
+
     return (
       <>
-        {/* Grid inside the popup (unchanged) */}
+        {/* Grid inside the popup */}
         <DialogContent className="max-w-5xl bg-gray-950/95 border-blue-800/40">
           <DialogHeader>
             <DialogTitle className="text-white">{title} — Gallery</DialogTitle>
@@ -108,7 +66,7 @@ export default function ServicesPage() {
             {images.map((src, i) => (
               <button
                 key={i}
-                aria-label="Close image viewer"
+                aria-label="Close image viewer" 
                 onClick={() => openAt(i)}
                 className="relative w-full aspect-[4/3] overflow-hidden rounded-lg border border-blue-800/30 focus:outline-none focus:ring-2 focus:ring-blue-600/60"
               >
@@ -124,76 +82,71 @@ export default function ServicesPage() {
             ))}
           </div>
         </DialogContent>
-  
-        {/* Full-screen lightbox with swipe */}
+
+        {/* Full-screen lightbox (separate dialog controlled by state) */}
         <Dialog open={lightboxOpen} onOpenChange={setLightboxOpen}>
-          <DialogContent className="max-w-[95vw] w-[95vw] h-[90vh] p-0 bg-black/90 border-blue-800/40">
-            {/* A11y title (hidden) */}
-            <div className="sr-only">
-              <DialogHeader>
-                <DialogTitle>{title} — Image Viewer</DialogTitle>
-              </DialogHeader>
-            </div>
-  
-            <div
-              className="relative w-full h-full"
-              onTouchStart={onTouchStart}
-              onTouchMove={onTouchMove}
-              onTouchEnd={onTouchEnd}
-            >
-              {/* Close */}
-              <button
-                onClick={() => setLightboxOpen(false)}
-                className="absolute top-3 right-3 z-20 rounded-full bg-white/10 hover:bg-white/20 p-2"
-                aria-label="Close"
-              >
-                <X className="w-6 h-6 text-white" />
-              </button>
-  
-              {/* Prev */}
-              <button
-                onClick={prev}
-                className="absolute left-3 top-1/2 -translate-y-1/2 z-20 rounded-full bg-white/10 hover:bg-white/20 p-3"
-                aria-label="Previous"
-              >
-                <ArrowLeft className="w-6 h-6 text-white" />
-              </button>
-  
-              {/* Next */}
-              <button
-                onClick={next}
-                className="absolute right-3 top-1/2 -translate-y-1/2 z-20 rounded-full bg-white/10 hover:bg-white/20 p-3"
-                aria-label="Next"
-              >
-                <ArrowRight className="w-6 h-6 text-white" />
-              </button>
-  
-              {/* Image */}
-              <div className="relative w-full h-full">
-                <Image
-                  src={images[index]}
-                  alt={`${title} full image ${index + 1}`}
-                  fill
-                  sizes="100vw"
-                  className="object-contain"
-                  priority
-                />
-              </div>
-  
-              {/* Dots */}
-              <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-20">
-                {images.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setIndex(i)}
-                    className={`h-2 w-2 rounded-full ${i === index ? "bg-white" : "bg-white/40"}`}
-                    aria-label={`Go to image ${i + 1}`}
-                  />
-                ))}
-              </div>
-            </div>
-          </DialogContent>
-        </Dialog>
+  <DialogContent className="max-w-[95vw] w-[95vw] h-[90vh] p-0 bg-black/90 border-blue-800/40">
+    {/* A11y title (visually hidden) */}
+    <div className="sr-only">
+      <DialogHeader>
+        <DialogTitle>{title} — Image Viewer</DialogTitle>
+      </DialogHeader>
+    </div>
+
+    <div className="relative w-full h-full">
+      {/* Close */}
+      <button
+        onClick={() => setLightboxOpen(false)}
+        className="absolute top-3 right-3 z-20 rounded-full bg-white/10 hover:bg-white/20 p-2"
+        aria-label="Close"
+      >
+        <X className="w-6 h-6 text-white" />
+      </button>
+
+      {/* Prev */}
+      <button
+        onClick={prev}
+        className="absolute left-3 top-1/2 -translate-y-1/2 z-20 rounded-full bg-white/10 hover:bg-white/20 p-3"
+        aria-label="Previous"
+      >
+        <ArrowLeft className="w-6 h-6 text-white" />
+      </button>
+
+      {/* Next */}
+      <button
+        onClick={next}
+        className="absolute right-3 top-1/2 -translate-y-1/2 z-20 rounded-full bg-white/10 hover:bg-white/20 p-3"
+        aria-label="Next"
+      >
+        <ArrowRight className="w-6 h-6 text-white" />
+      </button>
+
+      {/* Image */}
+      <div className="relative w-full h-full">
+        <Image
+          src={images[index]}
+          alt={`${title} full image ${index + 1}`}
+          fill
+          sizes="100vw"
+          className="object-contain"
+          priority
+        />
+      </div>
+
+      {/* Dots */}
+      <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-20">
+        {images.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setIndex(i)}
+            className={`h-2 w-2 rounded-full ${i === index ? "bg-white" : "bg-white/40"}`}
+            aria-label={`Go to image ${i + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  </DialogContent>
+</Dialog>
       </>
     )
   }
