@@ -257,7 +257,7 @@ export default function ServicesPage() {
               <CardContent className="space-y-4">
                 <div>
                   <p className="text-base leading-relaxed text-gray-300">
-                  Mixing &amp; Tracking engineer with 7.5 billion credited streams. Won his first Grammy mixing Dolby ATMOS and mastering <em>Coco Chanel</em> by Bad Bunny. Jacob now holds three RIAA platinum records and one gold album through working with stars like Kendrick Lamar, Guns N' Roses, Future, Yeat, and many more.
+                  Mixing &amp; Tracking engineer with 7.5 billion credited streams. Won his first Grammy mixing Dolby ATMOS and mastering <em>Coco Chanel</em> by Bad Bunny. Jacob now holds three RIAA platinum records and one gold album through working with stars like Kendrick Lamar, Guns N&apos; Roses, Future, Yeat, and many more.
                   </p>
                 </div>
                 <div className="pt-4 border-t border-blue-800/30">
