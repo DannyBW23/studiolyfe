@@ -12,22 +12,8 @@ export function Navbar() {
     <nav className="bg-black/90 backdrop-blur-md border-b border-blue-800/30 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link href="/" className="flex items-center gap-2 group">
-          <div className="relative w-[40px] h-[40px] mx-auto ">
-            <Image
-              src="https://profilepic23.s3.us-east-1.amazonaws.com/Screenshot+2025-08-13+at+1.54.26%E2%80%AFPM.png"
-              alt="StudioLyfe"
-              fill
-              className="rounded-full object-contain bg-black"
-            />
-          </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-blue-900 via-blue-300 to-green-300 bg-clip-text text-transparent">
-              StudioLyfe
-            </span>
-          </Link>
-
-          <div className="hidden md:flex items-center space-x-8">
-            <Link
+       <div>
+        <Link
               href="/about"
               className="text-gray-300 hover:text-blue-400 transition-all duration-300 hover:scale-105 font-medium"
             >
@@ -35,10 +21,26 @@ export function Navbar() {
             </Link>
             <Link
               href="/services"
-              className="text-gray-300 hover:text-purple-400 transition-all duration-300 hover:scale-105 font-medium"
+              className="ml-5 text-gray-300 hover:text-purple-400 transition-all duration-300 hover:scale-105 font-medium"
             >
               Services
             </Link>
+</div>
+          <div className="hidden md:flex items-center space-x-8">
+          <Link href="/" className="flex items-center gap-2 group">
+          <div className="relative w-[40px] h-[40px] mx-auto ">
+            <Image
+              src="https://profilepic23.s3.us-east-1.amazonaws.com/Screenshot+2025-08-23+at+5.25.50%E2%80%AFPM.png"
+              alt="StudioLyfe"
+              fill
+              className="rounded-full object-contain bg-black"
+            />
+          </div>
+            <span className="text-2xl font-bold bg-gradient-to-r from-blue-900 via-blue-300 to-green-300 bg-clip-text text-transparent">
+              Studio Lyfe
+            </span>
+          </Link>
+       \
           </div>
 
           <div className="md:hidden">

@@ -17,6 +17,9 @@ import { useEffect, useRef, useState } from "react"
 
 export default function ServicesPage() {
   const roomAImages = [
+    "https://profilepic23.s3.us-east-1.amazonaws.com/Screenshot+2025-08-23+at+6.57.41%E2%80%AFPM.png",
+    "https://profilepic23.s3.us-east-1.amazonaws.com/Screenshot+2025-08-23+at+6.57.28%E2%80%AFPM.png",
+    "https://profilepic23.s3.us-east-1.amazonaws.com/Screenshot+2025-08-23+at+6.57.15%E2%80%AFPM.png",
     "https://profilepic23.s3.us-east-1.amazonaws.com/77680554546__4CE24FE1-724C-4BFB-9B33-EDC6428D82C2.jpeg",
     "https://profilepic23.s3.us-east-1.amazonaws.com/77680555991__493F20C6-AFC0-402D-A549-C821A29BBD0E.jpeg",
     "https://profilepic23.s3.us-east-1.amazonaws.com/77680574174__68CF8416-A96B-42C5-B142-1141DAFCF1B9.jpeg",
@@ -221,18 +224,15 @@ export default function ServicesPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-blue-950">
-      <section className="py-20 px-4 relative overflow-hidden">
+      <section className="py-4 px-4 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 animate-pulse"></div>
         <div className="absolute top-10 left-20 w-32 h-32 bg-purple-500/20 rounded-full blur-xl animate-bounce"></div>
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-900 via-blue-300 to-green-300 bg-clip-text text-transparent  mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-900 via-blue-300 to-green-300 bg-clip-text text-transparent  mb-6">
             Our Engineers
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Meet the talented professionals who will bring your{" "}
-            <span className="text-purple-400 font-semibold">musical vision</span> to life
-          </p>
+       
         </div>
       </section>
 
@@ -257,7 +257,7 @@ export default function ServicesPage() {
               <CardContent className="space-y-4">
                 <div>
                   <p className="text-base leading-relaxed text-gray-300">
-                    Mixing &amp; Tracking engineer with 6.5 billion credited streams. Won his first Grammy mixing Dolby ATMOS and mastering <em>Coco Chanel</em> by Bad Bunny. Jacob now holds 3 RIAA platinum records and one gold album through working with stars like Kendrick Lamar, Guns and Roses, Future, Yeat, and much more.
+                  Mixing &amp; Tracking engineer with 7.5 billion credited streams. Won his first Grammy mixing Dolby ATMOS and mastering <em>Coco Chanel</em> by Bad Bunny. Jacob now holds three RIAA platinum records and one gold album through working with stars like Kendrick Lamar, Guns N' Roses, Future, Yeat, and many more.
                   </p>
                 </div>
                 <div className="pt-4 border-t border-blue-800/30">
@@ -273,17 +273,15 @@ export default function ServicesPage() {
       </section>
 
       {/* Owners Section */}
-      <section className="py-20 px-4 relative overflow-hidden">
+      <section className="py-4 px-4 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 animate-pulse"></div>
         <div className="absolute top-10 left-20 w-32 h-32 bg-purple-500/20 rounded-full blur-xl animate-bounce"></div>
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-900 via-blue-300 to-green-300 bg-clip-text text-transparent mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-900 via-blue-300 to-green-300 bg-clip-text text-transparent mb-6">
             Our Owners
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Meet the visionaries behind StudioLyfe.
-          </p>
+   
         </div>
       </section>
 
@@ -324,12 +322,12 @@ export default function ServicesPage() {
       </section>
 
       {/* Rooms */}
-      <section className="py-20 px-4 relative overflow-hidden">
+      <section className="py-4 px-4 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 animate-pulse"></div>
         <div className="absolute top-10 left-20 w-32 h-32 bg-purple-500/20 rounded-full blur-xl animate-bounce"></div>
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-900 via-blue-300 to-green-300 bg-clip-text text-transparent mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-900 via-blue-300 to-green-300 bg-clip-text text-transparent mb-6">
             Our Rooms
           </h1>
         </div>
@@ -424,17 +422,15 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="py-20 px-4 relative overflow-hidden">
+      <section className="py-4 px-4 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 animate-pulse"></div>
         <div className="absolute top-10 left-20 w-32 h-32 bg-purple-500/20 rounded-full blur-xl animate-bounce"></div>
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-900 via-blue-300 to-green-300 bg-clip-text text-transparent mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-900 via-blue-300 to-green-300 bg-clip-text text-transparent mb-6">
             Food &amp; Drink
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Complimentary beverages and delicious bites to keep your session flowing.
-          </p>
+         
         </div>
       </section>
 
@@ -442,27 +438,6 @@ export default function ServicesPage() {
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8">
             {/* Beverages */}
-            <Card className="h-full bg-gray-900/50 border-blue-800/30 hover:border-blue-600/50 transition-all duration-300 hover:transform hover:scale-105 backdrop-blur-sm">
-              <CardHeader>
-                <CardTitle className="text-2xl text-white">Included Beverages</CardTitle>
-                <CardDescription className="text-lg font-medium text-blue-400">
-                  Refreshments to keep you energized
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="list-disc pl-5 space-y-1 text-gray-300">
-                  <li>Pepsi (regular or diet)</li>
-                  <li>Dr Pepper (regular or diet)</li>
-                  <li>Sparkling water</li>
-                  <li>Still water</li>
-                  <li>Green tea</li>
-                  <li>Lychee &amp; Dragon Fruit Spritz</li>
-                  <li>Limoncello La Croix</li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            {/* Food */}
             <Card className="h-full bg-gray-900/50 border-blue-800/30 hover:border-blue-600/50 transition-all duration-300 hover:transform hover:scale-105 backdrop-blur-sm">
               <CardHeader>
                 <CardTitle className="text-2xl text-white">Food</CardTitle>
@@ -487,6 +462,54 @@ export default function ServicesPage() {
                 </div>
               </CardContent>
             </Card>
+
+
+            {/* Food */}
+            {/* <Card className="h-full bg-gray-900/50 border-blue-800/30 hover:border-blue-600/50 transition-all duration-300 hover:transform hover:scale-105 backdrop-blur-sm">
+              <CardHeader>
+                <CardTitle className="text-2xl text-white">Food</CardTitle>
+                <CardDescription className="text-lg font-medium text-blue-400">
+                  Savory and sweet treats
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div>
+                  <p className="text-white font-semibold">Caprese Sandwich</p>
+                  <p className="text-gray-300 text-sm">
+                    Fresh mozzarella cheese, prosciutto, tomatoes, basil pesto, and minced garlic on a crispy toasted
+                    baguette topped with Parmesan.{" "}
+                    <span className="italic text-gray-400">(Vegetarian option: no prosciutto)</span>
+                  </p>
+                </div>
+                <div>
+                  <p className="text-white font-semibold">Cookies</p>
+                  <p className="text-gray-300 text-sm">
+                    Your choice of assorted cookies: sugar, chocolate chip, matcha, strawberry cheesecake.
+                  </p>
+                </div>
+              </CardContent>
+            </Card> */}
+
+<Card className="h-full bg-gray-900/50 border-blue-800/30 hover:border-blue-600/50 transition-all duration-300 hover:transform hover:scale-105 backdrop-blur-sm">
+              <CardHeader>
+                <CardTitle className="text-2xl text-white">Included Beverages</CardTitle>
+                <CardDescription className="text-lg font-medium text-blue-400">
+                  Refreshments to keep you energized
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="list-disc pl-5 space-y-1 text-gray-300">
+                  <li>Pepsi (regular or diet)</li>
+                  <li>Dr Pepper (regular or diet)</li>
+                  <li>Sparkling water</li>
+                  <li>Still water</li>
+                  <li>Green tea</li>
+                  <li>Lychee &amp; Dragon Fruit Spritz</li>
+                  <li>Limoncello La Croix</li>
+                </ul>
+              </CardContent>
+            </Card>
+
           </div>
         </div>
       </section>
