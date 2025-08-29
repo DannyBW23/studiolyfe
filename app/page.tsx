@@ -207,7 +207,7 @@ export default function HomePage() {
           <div className="flex flex-col gap-5 pt-4">
             {/* Room A Buy Button */}
             <div className="flex flex-col items-center gap-2">
-              <p className="text-white font-semibold">Room A — $110</p>
+              <p className="text-white font-semibold">Room A — $110/hr</p>
               {/* @ts-expect-error: Stripe custom element */}
               <stripe-buy-button
                 buy-button-id={roomAButtonId}
@@ -217,7 +217,7 @@ export default function HomePage() {
 
             {/* Room B Buy Button */}
             <div className="flex flex-col items-center gap-2">
-              <p className="text-white font-semibold">Room B — $90</p>
+              <p className="text-white font-semibold">Room B — $90/hr</p>
               {/* @ts-expect-error: Stripe custom element */}
               <stripe-buy-button
                 buy-button-id={roomBButtonId}
