@@ -17,24 +17,21 @@ import { useEffect, useRef, useState } from "react"
 
 export default function ServicesPage() {
   const roomAImages = [
-    "https://profilepic23.s3.us-east-1.amazonaws.com/Screenshot+2025-08-23+at+6.57.41%E2%80%AFPM.png",
-    "https://profilepic23.s3.us-east-1.amazonaws.com/Screenshot+2025-08-23+at+6.57.28%E2%80%AFPM.png",
-    "https://profilepic23.s3.us-east-1.amazonaws.com/Screenshot+2025-08-23+at+6.57.15%E2%80%AFPM.png",
-    "https://profilepic23.s3.us-east-1.amazonaws.com/77680554546__4CE24FE1-724C-4BFB-9B33-EDC6428D82C2.jpeg",
-    "https://profilepic23.s3.us-east-1.amazonaws.com/77680555991__493F20C6-AFC0-402D-A549-C821A29BBD0E.jpeg",
-    "https://profilepic23.s3.us-east-1.amazonaws.com/77680574174__68CF8416-A96B-42C5-B142-1141DAFCF1B9.jpeg",
-    "https://profilepic23.s3.us-east-1.amazonaws.com/77680559041__DC8EA451-F11C-49A3-AC97-8BD761756430.jpeg",
-    "https://profilepic23.s3.us-east-1.amazonaws.com/77680567491__BB97D354-2FB3-4B62-ADF9-A55285992B36.jpeg",
-    "https://profilepic23.s3.us-east-1.amazonaws.com/77680560606__03EB2396-5E7B-48BC-811B-9A23A4373210.jpeg",
-    "https://profilepic23.s3.us-east-1.amazonaws.com/77680557914__CBB08B3A-FC7C-4480-B6A4-4DDA5BA5DDD8.jpeg",
-    "https://profilepic23.s3.us-east-1.amazonaws.com/77680566493__CD8B8C13-9957-4B23-9055-CF088655757B.jpeg",
+
+    "https://profilepic23.s3.us-east-1.amazonaws.com/IMG_1227.jpg",
+    "https://profilepic23.s3.us-east-1.amazonaws.com/IMG_1211.jpg",
+    "https://profilepic23.s3.us-east-1.amazonaws.com/IMG_6767.jpg",
+    "https://profilepic23.s3.us-east-1.amazonaws.com/IMG_8499.jpg",
+    "https://profilepic23.s3.us-east-1.amazonaws.com/IMG_8498.jpg",
+    "https://profilepic23.s3.us-east-1.amazonaws.com/IMG_8497.jpg",
+
   ]
 
   const roomBImages = [
-    "https://profilepic23.s3.us-east-1.amazonaws.com/77680540289__0DE26526-FFD8-45FF-9962-DA92F67695D0.jpeg",
-    "https://profilepic23.s3.us-east-1.amazonaws.com/77680542777__8E1BE448-D8C8-4A68-BE9B-964BE74A09EF.jpeg",
-    "https://profilepic23.s3.us-east-1.amazonaws.com/77680541396__05111714-BFA7-420A-9295-38415AE79C08.jpeg",
-    "https://profilepic23.s3.us-east-1.amazonaws.com/77680539199__847539EE-8E9F-46AF-ABB0-B43487A2B701.jpeg",
+    "https://profilepic23.s3.us-east-1.amazonaws.com/IMG_6841.jpg",
+    "https://profilepic23.s3.us-east-1.amazonaws.com/IMG_6835.jpg",
+    "https://profilepic23.s3.us-east-1.amazonaws.com/IMG_6827.jpg"
+  
   ]
 
   // Gallery with full-screen lightbox
@@ -224,102 +221,10 @@ export default function ServicesPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-blue-950">
-      <section className="py-4 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 animate-pulse"></div>
-        <div className="absolute top-10 left-20 w-32 h-32 bg-purple-500/20 rounded-full blur-xl animate-bounce"></div>
 
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-900 via-blue-300 to-green-300 bg-clip-text text-transparent  mb-6">
-            Our Engineers
-          </h1>
-       
-        </div>
-      </section>
-
-      <section className="py-12 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Jacob Stuart */}
-            <Card className="h-full bg-gray-900/50 border-blue-800/30 hover:border-blue-600/50 transition-all duration-300 hover:transform hover:scale-105 backdrop-blur-sm">
-              <CardHeader>
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="p-2 bg-gradient-to-r from-blue-600 to-blue-800 rounded-lg">
-                    <Mic className="h-8 w-8 text-white" />
-                  </div>
-                  <div>
-                    <CardTitle className="text-2xl text-white">Jacob Stuart</CardTitle>
-                    <CardDescription className="text-lg font-medium text-blue-400">
-                      Lead Recording Engineer
-                    </CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div>
-                  <p className="text-base leading-relaxed text-gray-300">
-                  Mixing &amp; Tracking engineer with 7.5 billion credited streams. Won his first Grammy mixing Dolby ATMOS and mastering <em>Coco Chanel</em> by Bad Bunny. Jacob now holds three RIAA platinum records and one gold album through working with stars like Kendrick Lamar, Guns N&apos; Roses, Future, Yeat, and many more.
-                  </p>
-                </div>
-                <div className="pt-4 border-t border-blue-800/30">
-                  <p className="text-sm font-medium text-gray-400 mb-2">Notable Achievements</p>
-                  <p className="text-sm text-blue-300">
-                    Platinum: EST, Gee, Yovngchimi 2x
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
 
       {/* Owners Section */}
-      <section className="py-4 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 animate-pulse"></div>
-        <div className="absolute top-10 left-20 w-32 h-32 bg-purple-500/20 rounded-full blur-xl animate-bounce"></div>
-
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-900 via-blue-300 to-green-300 bg-clip-text text-transparent mb-6">
-            Our Owners
-          </h1>
-   
-        </div>
-      </section>
-
-      <section className="py-12 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Max Judah */}
-            <Card className="h-full bg-gray-900/50 border-blue-800/30 hover:border-blue-600/50 transition-all duration-300 hover:transform hover:scale-105 backdrop-blur-sm">
-              <CardHeader>
-                <CardTitle className="text-2xl text-white">Max Judah</CardTitle>
-                <CardDescription className="text-lg font-medium text-blue-400">
-                  Artist • Manager
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-base leading-relaxed text-gray-300">
-                  Max is an artist and manager based in Los Angeles. He&apos;s a skilled team builder and artist development specialist with a focus on pop and rap music.
-                </p>
-              </CardContent>
-            </Card>
-
-            {/* Clement Finney */}
-            <Card className="h-full bg-gray-900/50 border-purple-800/30 hover:border-purple-600/50 transition-all duration-300 hover:transform hover:scale-105 backdrop-blur-sm">
-              <CardHeader>
-                <CardTitle className="text-2xl text-white">Clement Finney</CardTitle>
-                <CardDescription className="text-lg font-medium text-blue-400">
-                  Studio Designer • Creative Director
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-base leading-relaxed text-gray-300">
-                  Clem started his journey with music studio design in college from a garage in the Midwest. He utilizes experience in West Hollywood&apos;s nightlife scene along with a wide range of other influences to create unique creative spaces.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
+      
 
       {/* Rooms */}
       <section className="py-4 px-4 relative overflow-hidden">
@@ -416,6 +321,53 @@ export default function ServicesPage() {
                   The B Room features a stylish blend of sophistication and creative energy offering a unique atmosphere.
                   Its vocal booth features a glowing cloud ceiling that adds a touch of magic to every session.
                 </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+<section className="py-4 px-4 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 animate-pulse"></div>
+        <div className="absolute top-10 left-20 w-32 h-32 bg-purple-500/20 rounded-full blur-xl animate-bounce"></div>
+
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-900 via-blue-300 to-green-300 bg-clip-text text-transparent  mb-6">
+            Our Engineers
+          </h1>
+       
+        </div>
+      </section>
+
+      <section className="py-12 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Jacob Stuart */}
+            <Card className="h-full bg-gray-900/50 border-blue-800/30 hover:border-blue-600/50 transition-all duration-300 hover:transform hover:scale-105 backdrop-blur-sm">
+              <CardHeader>
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="p-2 bg-gradient-to-r from-blue-600 to-blue-800 rounded-lg">
+                    <Mic className="h-8 w-8 text-white" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-2xl text-white">Jacob Stewart</CardTitle>
+                    <CardDescription className="text-lg font-medium text-blue-400">
+                      Lead Recording Engineer
+                    </CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div>
+                  <p className="text-base leading-relaxed text-gray-300">
+                  Mixing &amp; Tracking engineer with 7.5 billion credited streams specializing in mixing Dolby ATMOS. Won his first Grammy assistant mastering <em>Coco Chanel</em> by Eladio Carrion feat. Bad Bunny. Jacob now holds three RIAA platinum records and one gold album through working with stars like Kendrick Lamar, Guns N&apos; Roses, Future, Yeat, and many more.
+                  </p>
+                </div>
+                <div className="pt-4 border-t border-blue-800/30">
+                  <p className="text-sm font-medium text-gray-400 mb-2">Notable Achievements</p>
+                  <p className="text-sm text-blue-300">
+                    Platinum: EST Gee, Yovngchimi 2x
+                  </p>
+                </div>
               </CardContent>
             </Card>
           </div>

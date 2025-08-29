@@ -7,27 +7,29 @@ import { Navbar } from "@/components/navbar"
 
 export const metadata: Metadata = {
   title: "StudioLyfe",
-
-  description: "Professional music recording studio with top-tier equipment and experienced engineers",
+  description:
+    "Professional music recording studio with top-tier equipment and experienced engineers",
   generator: "v0.app",
 }
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <head>
         <style>{`
-html {
-  font-family: ${GeistSans.style.fontFamily};
-  --font-sans: ${GeistSans.variable};
-  --font-mono: ${GeistMono.variable};
-}
+          html {
+            font-family: ${GeistSans.style.fontFamily};
+            --font-sans: ${GeistSans.variable};
+            --font-mono: ${GeistMono.variable};
+          }
         `}</style>
+
+        {/* Stripe Buy Button script (moved OUTSIDE <style>) */}
+        <script async src="https://js.stripe.com/v3/buy-button.js"></script>
       </head>
+
       <body className="bg-black min-h-screen">
         <Navbar />
         <main>{children}</main>
