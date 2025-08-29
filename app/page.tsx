@@ -1,14 +1,71 @@
 "use client"
 
 import Link from "next/link"
-import { useState } from "react"
+import { useState, useMemo } from "react"
 import { Button } from "@/components/ui/button"
-import { Card, CardHeader, CardTitle,CardContent } from "@/components/ui/card"
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Music, Headphones, Instagram, Mail } from "lucide-react"
 import Image from "next/image"
 import { MapPin } from "lucide-react"
 import Script from "next/script"
+
+function useIOSWebView() {
+  return useMemo(() => {
+    if (typeof window === "undefined") return false
+    const ua = window.navigator.userAgent || ""
+    const isIOS = /iPad|iPhone|iPod/.test(ua)
+    const isWebKit = /WebKit/.test(ua)
+    const isChrome = /CriOS/.test(ua) // Chrome iOS still uses WKWebView
+    // Heuristic: iOS + WebKit but not Safari UI = likely WKWebView wrapper
+    const isInApp =
+      !!(window as any).webkit || /FBAN|FBAV|Instagram|Line|WeChat|Twitter|GSA|Telegram/i.test(ua)
+    return isIOS && isWebKit && (isInApp || !/Safari/i.test(ua) || isChrome)
+  }, [])
+}
+
+/** Mobile-safe external link:
+ * - Uses a real <a> (works in mobile browsers)
+ * - On iOS WKWebView, falls back to location.href to avoid blocked window.open
+ */
+function ExternalLink({
+  href,
+  children,
+  className,
+  ariaLabel,
+}: {
+  href: string
+  children: React.ReactNode
+  className?: string
+  ariaLabel?: string
+}) {
+  const isIOSWV = useIOSWebView()
+
+  const onClick: React.MouseEventHandler<HTMLAnchorElement> = (e) => {
+    if (!isIOSWV) return
+    // Some iOS WebViews ignore target=_blank; force top-level nav
+    e.preventDefault()
+    try {
+      window.location.href = href
+    } catch {
+      // last resort
+      window.open(href, "_blank", "noopener,noreferrer")
+    }
+  }
+
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={className}
+      aria-label={ariaLabel}
+      onClick={onClick}
+    >
+      {children}
+    </a>
+  )
+}
 
 export default function HomePage() {
   const [isBookingOpen, setIsBookingOpen] = useState(false)
@@ -41,6 +98,7 @@ export default function HomePage() {
               alt="StudioLyfe"
               fill
               className="rounded-full object-contain"
+              priority
             />
           </div>
 
@@ -62,59 +120,58 @@ export default function HomePage() {
               asChild
               className="mb-5 gap-2 bg-blue-600 hover:bg-blue-500 px-5 py-3 rounded-full text-white shadow-md flex items-center transition-all duration-300 hover:scale-105"
             >
-              <a href={mapsUrl} target="_blank" rel="noopener noreferrer">
+              <ExternalLink href={mapsUrl} ariaLabel="Open Google Maps to North Hollywood">
                 <MapPin className="h-5 w-5 text-white" />
                 <span className="font-semibold">North Hollywood, CA</span>
-              </a>
+              </ExternalLink>
             </Button>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {/* Equipment Card */}
             <Card className="bg-gray-900/50 border-blue-800/30 hover:border-blue-600/50 transition-all duration-300 hover:transform hover:scale-105 backdrop-blur-sm">
-  <CardHeader>
-    <div className="flex items-center gap-3">
-      <div className="p-2 bg-gradient-to-r from-blue-600 to-blue-800 rounded-lg">
-        <Headphones className="h-8 w-8 text-white" />
-      </div>
-      <CardTitle className="text-2xl text-white">Gear List</CardTitle>
-    </div>
-  </CardHeader>
-  <CardContent className="text-white space-y-6">
-    {/* Room A */}
-    <div>
-      <h3 className="text-xl font-semibold text-blue-400 mb-2">Room A</h3>
-      <ul className="list-disc list-inside space-y-1 text-gray-200">
-        <li><strong>Monitors:</strong> Focal Twin6</li>
-        <li><strong>Subwoofers:</strong> Two Mackie Thump118S</li>
-        <li><strong>Interface:</strong> Apollo X8 Gen 2</li>
-        <li><strong>Preamp:</strong> WA273-EQ</li>
-        <li><strong>Compressor:</strong> WA-1B</li>
-        <li><strong>Mic:</strong> U87 ai</li>
-        <li><strong>Headphones:</strong> ATH-M50x</li>
-        <li><strong>Mic Options:</strong> SM7B</li>
-        <li><strong>Headphone Options:</strong> Sony MDR-7506</li>
-      </ul>
-    </div>
+              <CardHeader>
+                <div className="flex items-center gap-3">
+                  <div className="p-2 bg-gradient-to-r from-blue-600 to-blue-800 rounded-lg">
+                    <Headphones className="h-8 w-8 text-white" />
+                  </div>
+                  <CardTitle className="text-2xl text-white">Gear List</CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent className="text-white space-y-6">
+                {/* Room A */}
+                <div>
+                  <h3 className="text-xl font-semibold text-blue-400 mb-2">Room A</h3>
+                  <ul className="list-disc list-inside space-y-1 text-gray-200">
+                    <li><strong>Monitors:</strong> Focal Twin6</li>
+                    <li><strong>Subwoofers:</strong> Two Mackie Thump118S</li>
+                    <li><strong>Interface:</strong> Apollo X8 Gen 2</li>
+                    <li><strong>Preamp:</strong> WA273-EQ</li>
+                    <li><strong>Compressor:</strong> WA-1B</li>
+                    <li><strong>Mic:</strong> U87 ai</li>
+                    <li><strong>Headphones:</strong> ATH-M50x</li>
+                    <li><strong>Mic Options:</strong> SM7B</li>
+                    <li><strong>Headphone Options:</strong> Sony MDR-7506</li>
+                  </ul>
+                </div>
 
-    {/* Room B */}
-    <div>
-      <h3 className="text-xl font-semibold text-blue-400 mb-2">Room B</h3>
-      <ul className="list-disc list-inside space-y-1 text-gray-200">
-        <li><strong>Monitors:</strong> Barefoot Sound Footprint02</li>
-        <li><strong>Subwoofer:</strong> KRK Sub 10”</li>
-        <li><strong>Interface:</strong> Apollo x4</li>
-        <li><strong>Preamp:</strong> WA273</li>
-        <li><strong>Compressor:</strong> WA-1B</li>
-        <li><strong>Mic:</strong> U87 ai</li>
-        <li><strong>Headphones:</strong> ATH-M50x</li>
-        <li><strong>Mic Options:</strong> SM7B</li>
-        <li><strong>Headphone Options:</strong> Sony MDR-7506</li>
-      </ul>
-    </div>
-  </CardContent>
-</Card>
-
+                {/* Room B */}
+                <div>
+                  <h3 className="text-xl font-semibold text-blue-400 mb-2">Room B</h3>
+                  <ul className="list-disc list-inside space-y-1 text-gray-200">
+                    <li><strong>Monitors:</strong> Barefoot Sound Footprint02</li>
+                    <li><strong>Subwoofer:</strong> KRK Sub 10”</li>
+                    <li><strong>Interface:</strong> Apollo x4</li>
+                    <li><strong>Preamp:</strong> WA273</li>
+                    <li><strong>Compressor:</strong> WA-1B</li>
+                    <li><strong>Mic:</strong> U87 ai</li>
+                    <li><strong>Headphones:</strong> ATH-M50x</li>
+                    <li><strong>Mic Options:</strong> SM7B</li>
+                    <li><strong>Headphone Options:</strong> Sony MDR-7506</li>
+                  </ul>
+                </div>
+              </CardContent>
+            </Card>
 
             <Link href="/services">
               <Card className="bg-gray-900/50 border-purple-800/30 hover:border-purple-600/50 transition-all duration-300 hover:transform hover:scale-105 backdrop-blur-sm">
@@ -165,20 +222,28 @@ export default function HomePage() {
             {/* Contact options */}
             <div className="pt-2 grid grid-cols-1 gap-3">
               <Button
+                asChild
                 variant="outline"
                 className="flex items-center gap-3 justify-center py-6 bg-transparent border-blue-600/50 text-white hover:bg-blue-600/20 hover:border-blue-500 transition-all duration-300"
-                onClick={() => window.open("https://www.instagram.com/_studiolyfe/", "_blank")}
               >
-                <Instagram className="h-5 w-5 text-pink-400" />
-                DM us on Instagram
+                <ExternalLink
+                  href="https://www.instagram.com/_studiolyfe/"
+                  ariaLabel="Open Instagram profile in a new tab"
+                >
+                  <Instagram className="h-5 w-5 text-pink-400" />
+                  <span>DM us on Instagram</span>
+                </ExternalLink>
               </Button>
+
               <Button
+                asChild
                 variant="outline"
                 className="flex items-center gap-3 justify-center py-6 bg-transparent border-purple-600/50 text-white hover:bg-purple-600/20 hover:border-purple-500 transition-all duration-300"
-                onClick={() => (window.location.href = "mailto:studiolyfela@gmail.com")}
               >
-                <Mail className="h-5 w-5 text-blue-400" />
-                Send us an Email
+                <a href="mailto:studiolyfela@gmail.com" aria-label="Send us an email">
+                  <Mail className="h-5 w-5 text-blue-400" />
+                  <span>Send us an Email</span>
+                </a>
               </Button>
             </div>
           </div>
