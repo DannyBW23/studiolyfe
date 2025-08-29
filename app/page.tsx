@@ -16,13 +16,19 @@ function useIOSWebView() {
     const ua = window.navigator.userAgent || ""
     const isIOS = /iPad|iPhone|iPod/.test(ua)
     const isWebKit = /WebKit/.test(ua)
-    const isChrome = /CriOS/.test(ua) // Chrome iOS still uses WKWebView
-    // Heuristic: iOS + WebKit but not Safari UI = likely WKWebView wrapper
-    const isInApp =
-      !!(window as any).webkit || /FBAN|FBAV|Instagram|Line|WeChat|Twitter|GSA|Telegram/i.test(ua)
-    return isIOS && isWebKit && (isInApp || !/Safari/i.test(ua) || isChrome)
+    const isChrome = /CriOS/.test(ua) // Chrome on iOS is still WKWebView
+
+    // Safely check for the non-standard "webkit" property without using "any"
+    const hasWebkit = typeof (window as Window & { webkit?: unknown }).webkit !== "undefined"
+
+    // Heuristic: iOS + WebKit + (embedded UA or presence of window.webkit) ≈ WKWebView/in-app
+    const isEmbeddedUA = /FBAN|FBAV|Instagram|Line|WeChat|Twitter|GSA|Telegram/i.test(ua)
+    const notSafariUI = !/Safari/i.test(ua) || isChrome
+
+    return isIOS && isWebKit && (hasWebkit || isEmbeddedUA || notSafariUI)
   }, [])
 }
+
 
 /** Mobile-safe external link:
  * - Uses a real <a> (works in mobile browsers)
